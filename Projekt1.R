@@ -110,16 +110,16 @@ kurtosis(ubezp$Wynagrodzenie)-3
 
 #NIE UBEZPIECZA SIĘ
 nieubezp<-subset(dane_do_zestawu_17, Ubezpieczenie=="Nie")
-śrn=mean(nieubezp$Wynagrodzenie)
-median(nieubezp$Wynagrodzenie)
+śrn=mean(nieubezp$Wynagrodzenie/100)
+median(nieubezp$Wynagrodzenie/100)
 
-war_n=sum((nieubezp$Wynagrodzenie-śru)^2)/length(nieubezp$Wynagrodzenie)
+war_n=sum((nieubezp$Wynagrodzenie/100-śru)^2)/length(nieubezp$Wynagrodzenie)
 #a - odchylenie standardowe
 odchylenie_n=sqrt(war_n)
 
 #asymetria
 as_n=sum((nieubezp$Wynagrodzenie-śrn)^3)/(length(nieubezp$Wynagrodzenie)*odchylenie_n^3)
-skewness(nieubezp$Wynagrodzenie)
+skewness(nieubezp$Wynagrodzenie/100)
 #kurtoza
 ku_n=sum((nieubezp$Wynagrodzenie-śru)^4)/(length(nieubezp$Wynagrodzenie)*odchylenie_n^4)-3
 ku_n=kurtosis(nieubezp$Wynagrodzenie)-3
