@@ -169,4 +169,5 @@ srednia_wiek <- aggregate(Wiek ~ Zamieszkanie + Wiedza,
 print(srednia_wiek)
 write.csv(srednia_wiek, "srednia.csv", row.names=FALSE, fileEncoding = "UTF-8")
 
+sabrina carpenter
 
