@@ -34,7 +34,7 @@ rozklad_l_k_procent <- data.frame(
   #Nr=1:length(unique(Oszczednosci)),
   Oszczędności=c("Mniej niż 5 procent", "5-10 procent","10-20 procent", "Powyżej 20 procent"),
   Liczność=sort(as.numeric(table(kobiety$Oszczednosci))),
-  Procent=(percent(sort(as.numeric(table(kobiety$Oszczednosci))/306), accuracy=0.01))
+  Procent=(percent(sort(as.numeric(table(kobiety$Oszczednosci))/165), accuracy=0.01))
 )
 
 rozkl_k=t(rozklad_l_k_procent)
@@ -43,12 +43,12 @@ write.csv(rozkl_k, "rozkład_kobiety.csv", fileEncoding = "UTF-8")
 
 #WYKRES KOLUMNOWY ROZKŁADU
 #oszcz_k=sort(table(kobiety$Oszczednosci)/306*100)
-procent=(percent(sort(as.numeric(table(kobiety$Oszczednosci))/306), accuracy=0.01))
-wysokosc=(sort(as.numeric(table(kobiety$Oszczednosci))/306*100))
-wykres_k=barplot(sort(table(kobiety$Oszczednosci)/306*100), main = "Procent dochodu przeznaczany przez kobiety na oszczędności",
+procent=(percent(sort(as.numeric(table(kobiety$Oszczednosci))/165), accuracy=0.01))
+wysokosc=(sort(as.numeric(table(kobiety$Oszczednosci))/165*100))
+wykres_k=barplot(sort(table(kobiety$Oszczednosci)/165*100), main = "Procent dochodu przeznaczany przez kobiety na oszczędności",
         xlab = "Procent dochodu gospodarstwa domowego [%]", ylab = "Procent kobiet [%]", col = c("#5B2125FF", "#8D3431FF", "#BF542EFF", "#E9A800FF"),
         names.arg = c("Mniej niż 5 procent", "5-10 procent","10-20 procent", "Powyżej 20 procent"),
-        ylim=c(0,30))
+        ylim=c(0,55))
 text(wykres_k, wysokosc+2, labels=procent ,cex=1) 
 wykres_k
 
@@ -59,19 +59,19 @@ rozklad_l_m_procent <- data.frame(
   #Nr=1:length(unique(Oszczednosci)),
   Oszczędności=c("Mniej niż 5 procent", "5-10 procent","10-20 procent", "Powyżej 20 procent"),
   Liczność=sort(as.numeric(table(mezczyzni$Oszczednosci))),
-  Procent=(percent(sort(as.numeric(table(mezczyzni$Oszczednosci))/306), accuracy=0.01))
+  Procent=(percent(sort(as.numeric(table(mezczyzni$Oszczednosci))/141), accuracy=0.01))
 )
 rozklad_l_m_procent
 rozk_m=t(rozklad_l_m_procent)
 write.csv(rozk_m, "rozkład_m.csv", fileEncoding = "UTF-8")
 
 #WYKRES KOLUMNOWY ROZKŁADU
-procent=(percent(sort(as.numeric(table(mezczyzni$Oszczednosci))/306), accuracy=0.01))
-wysokosc=(sort(as.numeric(table(mezczyzni$Oszczednosci))/306*100))
-wykres_m=barplot(sort(table(mezczyzni$Oszczednosci)/306*100), main = "Procent dochodu przeznaczany przez mężczyzn na oszczędności",
+procent=(percent(sort(as.numeric(table(mezczyzni$Oszczednosci))/141), accuracy=0.01))
+wysokosc=(sort(as.numeric(table(mezczyzni$Oszczednosci))/141*100))
+wykres_m=barplot(sort(table(mezczyzni$Oszczednosci)/141*100), main = "Procent dochodu przeznaczany przez mężczyzn na oszczędności",
             xlab = "Procent dochodu gospodarstwa domowego [%]", ylab = "Procent mężczyzn [%]", col=c("#5B2125FF", "#8D3431FF", "#BF542EFF", "#E9A800FF"),
             names.arg = c("Mniej niż 5 procent", "5-10 procent","10-20 procent", "Powyżej 20 procent"),
-            ylim=c(0,30))
+            ylim=c(0,50))
 text(wykres_m, wysokosc+2, labels=procent ,cex=1) 
 wykres_m
 
